@@ -4,8 +4,6 @@ on:
 jobs:
   build-linux:
     runs-on: ubuntu-latest
-    env:
-      working-directory: ./pyprc
     strategy:
       fail-fast: false
     steps:
@@ -18,7 +16,6 @@ jobs:
         with:
           command: build
           args: --release --strip --interpreter python3.13
-          working-directory: ${{env.working-directory}}
       - name: Upload Wheel
         uses: actions/upload-artifact@v4
         with:
